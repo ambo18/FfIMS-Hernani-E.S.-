@@ -1,23 +1,14 @@
 <?php include 'server/server.php' ?>
-<?php 
-	// announcement
-	$getAnnouncement = "SELECT * FROM tbl_announcement WHERE status=1 ORDER BY id DESC";
-    $announcement = $conn->query($getAnnouncement);
-	
-	// total residents
-	$stmtResidentTotal 	= "SELECT COUNT(*) AS count FROM tblresident";
-    $resResidentTotal 	= $conn->query($stmtResidentTotal);
-	$totalResident = $resResidentTotal->fetch_assoc();
+<?php 	
+	// total deworming records
+	$stmtDewormingTotal 	= "SELECT COUNT(*) AS count FROM tbl_deworming";
+    $dewormingTotal 	= $conn->query($stmtDewormingTotal);
+	$totalDeworming = $dewormingTotal->fetch_assoc();
 
-	// total female
-	$stmtFemaleResidentTotal 	= "SELECT COUNT(*) AS count FROM tblresident WHERE gender='Female'";
-    $resFemaleResidentTotal 	= $conn->query($stmtFemaleResidentTotal);
-	$totalFemaleResident = $resFemaleResidentTotal->fetch_assoc();
-
-	// total male
-	$stmtMaleResidentTotal 	= "SELECT COUNT(*) AS count FROM tblresident WHERE gender='Male'";
-    $resMaleResidentTotal 	= $conn->query($stmtMaleResidentTotal);
-	$totalMaleResident = $resMaleResidentTotal->fetch_assoc();
+	// total operation timbang records
+	$stmtOperTimTotal 	= "SELECT COUNT(*) AS count FROM tbl_operation_timbang";
+    $OperTimTotal 	= $conn->query($stmtOperTimTotal);
+	$totalOperTim = $OperTimTotal->fetch_assoc();
 
 	// total medicine available
 	$stmtMedinceAvailableTotal 	= "SELECT SUM(quantity) AS med_count FROM tbl_medicine";
@@ -28,12 +19,6 @@
 	$stmtMedicalSupplyAvailable 	= "SELECT SUM(quantity) AS supply_count FROM tbl_medical_supply";
     $resMedicalSupplyAvailable 	= $conn->query($stmtMedicalSupplyAvailable);
 	$totalMedicalSupplyAvailable = $resMedicalSupplyAvailable->fetch_assoc();
-
-	// total appointments today
-	$date_today 			= date("Y-m-d");
-	$stmtAppointmentsToday 	= "SELECT COUNT(*) AS total_appointment FROM tbl_appointment WHERE appointment_date = '$date_today'";
-    $resAppointmentsToday 	= $conn->query($stmtAppointmentsToday);
-	$totalAppointmentsToday = $resAppointmentsToday->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -66,14 +51,26 @@
 							<div class="d-flex p-3 flex-row ">
 								<div class="card text-center mr-3 " style="width: 15rem;">
 									<div class="card-header card-success">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalResident['count']?$totalResident['count']:0 ?></span>
+										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalDeworming['count']?$totalDeworming['count']:0 ?></span>
 									</div>
 									<div class="card-body">
 										<h5 class="card-title">
-											<strong>RECORDS</strong>
+											<strong>DEWORMING RECORDS</strong>
 										</h5>
-										<p class="card-text">Total no. of records in the municipality.</p>
-										<a href="resident.php" class="btn btn-success btn-sm">View Details</a>
+										<p class="card-text">Total no. of deworming records in the barangay.</p>
+										<a href="deworming.php" class="btn btn-success btn-sm">View Details</a>
+									</div>
+								</div>
+								<div class="card text-center mr-3 " style="width: 15rem;">
+									<div class="card-header card-danger">
+										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalOperTim['count']?$totalOperTim['count']:0 ?></span>
+									</div>
+									<div class="card-body">
+										<h5 class="card-title">
+											<strong>OPERATION TIMBANG RECORDS</strong>
+										</h5>
+										<p class="card-text">Total no. of operation timbang records in the barangay.</p>
+										<a href="oper-timbang.php" class="btn btn-success btn-sm">View Details</a>
 									</div>
 								</div>
 								<div class="card text-center mr-3" style="width: 15rem;">

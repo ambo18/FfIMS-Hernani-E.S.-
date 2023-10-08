@@ -7,30 +7,26 @@
     $birthdate = strtoupper($_POST['birthdate']);
     $age = strtoupper($_POST['age']);
     $gender = strtoupper($_POST['gender']);
-    $weight = strtoupper($_POST['weight']);
-    $height = strtoupper($_POST['height']);
-    $nutritional_status = strtoupper($_POST['nutritional_status']);
-    $dateofopertimbang = strtoupper($_POST['dateofopertimbang']);
+    $dateofdeworming = strtoupper($_POST['dateofdeworming']);
+    $typeofdeworming = strtoupper($_POST['typeofdeworming']);
     $phone = strtoupper($_POST['phone']);
     $remarks = strtoupper($_POST['remarks']);
 
 
 
-    $query = "UPDATE tbl_operation_timbang 
+    $query = "UPDATE tbl_deworming 
                 SET p_name  ='$p_name',
                     name_parent ='$name_parent',
-                    address    ='$address',
-                    birthdate  ='$birthdate', 
-                    age        ='$age',
+                    address = '$address',
+                    birthdate  ='$birthdate',
+                    age        ='$age', 
                     gender     ='$gender',
-                    weight     ='$weight',
-                    height      ='$height',
-                    nutritional_status='$nutritional_status',
-                    dateofopertimbang= '$dateofopertimbang',
-                    phone  ='$phone',
-                    remarks='$remarks'
+                    dateofdeworming  ='$dateofdeworming',
+                    typeofdeworming ='$typeofdeworming',
+                    remarks ='$remarks',
+                    phone      ='$phone'
              WHERE id='$id'";
-               
+
     $result = $conn->query($query);
     $_SESSION['message'] = 'Failed to update resident!';
     $_SESSION['success'] = 'danger';
@@ -38,5 +34,5 @@
         $_SESSION['message'] = 'Successfully updated resident!';
         $_SESSION['success'] = 'success';
     }
-    header('location: oper-timbang.php');
+    header('location: deworming.php');
 ?>

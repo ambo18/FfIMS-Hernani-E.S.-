@@ -53,22 +53,22 @@ $current_page = PageName();
                     </span>
                     <h4 class="text-section">FOR CHILDREN</h4>
                 </li>
-                        <li class="nav-item <?= $current_page=='resident.php' || $current_page=='resident_add_form.php' || $current_page=='resident_update_form.php' ? 'active' : null ?>">
-                            <a href="resident.php" >
-                            <img src="icon/worm.png" style="height: 20px; width: auto;">
-                                <p style="margin-left: 20px">Deworming</p>
+                        <li class="nav-item <?= $current_page=='deworming.php' || $current_page=='deworming-add.php' || $current_page=='deworming-update.php' ? 'active' : null ?>">
+                            <a href="deworming.php" >
+                            <i class="fas fa-dice-one"></i>          
+                                <p>Deworming</p>
                             </a>
                         </li>
                         <li class="nav-item <?= $current_page=='oper-timbang.php' || $current_page=='oper-timbang-add.php' || $current_page=='oper-timbang-update.php' ? 'active' : null ?>">
                             <a href="oper-timbang.php" >
-                            <img src="icon/weight.png" style="height: 20px; width: auto;">
-                                <p style="margin-left: 20px">Operation Timbang</p>
+                            <i class="fas fa-dice-two"></i>
+                                <p>Operation Timbang</p>
                             </a>
                         </li>
                         <li class="nav-item <?= $current_page=='vitamin.php' || $current_page=='vitamin-add.php' || $current_page=='vitamin-update.php' ? 'active' : null ?>">
                             <a href="vitamin.php" >
-                            <img src="icon/vitamins.png" style="height: 20px; width: auto;">
-                                <p style="margin-left: 20px">Distribution Of Vitamin</p>
+                            <i class="fas fa-dice-three"></i>
+                                <p>Distribution Of Vitamin</p>
                             </a>
                         </li>
 
@@ -80,8 +80,8 @@ $current_page = PageName();
                 </li>
                         <li class="nav-item <?= $current_page=='bp.php' || $current_page=='bp-add.php' || $current_page=='bp-update.php' ? 'active' : null ?>">
                             <a href="bp.php" >
-                            <img src="icon/bp.png" style="height: 20px; width: auto;">
-                                <p style="margin-left: 20px">Blood Pressure</p>
+                            <i class="fas fa-dice-two"></i>
+                                <p>Blood Pressure</p>
                             </a>
                         </li>
            

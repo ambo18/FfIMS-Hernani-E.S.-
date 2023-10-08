@@ -1,53 +1,49 @@
 <?php include 'server/server.php' ?>
 <?php
-    $first_name = strtoupper($_POST['first_name']);
-    $middle_name = strtoupper($_POST['middle_name']);
-    $last_name = strtoupper($_POST['last_name']);
-    $age = strtoupper($_POST['age']);
+    $p_name = strtoupper($_POST['p_name']);
+    $name_parent = strtoupper($_POST['name_parent']);
+    $address = strtoupper($_POST['address']);
     $birthdate = strtoupper($_POST['birthdate']);
-    $phone = strtoupper($_POST['phone']);
+    $age = strtoupper($_POST['age']);
     $gender = strtoupper($_POST['gender']);
-    $purok = strtoupper($_POST['purok']);
-    $first_name = strtoupper($_POST['first_name']);
-    $medicalConditions = strtoupper($_POST['medicalConditions']);
-    $allergies = strtoupper($_POST['allergies']);
-    $previousIllnesses = strtoupper($_POST['previousIllnesses']);
-    $surgeries = strtoupper($_POST['surgeries']);
-    $medications = strtoupper($_POST['medications']);
+    $weight = strtoupper($_POST['weight']);
+    $height = strtoupper($_POST['height']);
+    $nutritional_status = strtoupper($_POST['nutritional_status']);
+    $dateofopertimbang = strtoupper($_POST['dateofopertimbang']);
+    $phone = strtoupper($_POST['phone']);
+    $remarks = strtoupper($_POST['remarks']);
 
 
-    $query = "INSERT INTO tblresident (firstname, 
-                                        middlename, 
-                                        lastname, 
-                                        age, 
+    $query = "INSERT INTO tbl_operation_timbang (p_name, 
+                                        name_parent, 
+                                        address, 
                                         birthdate, 
-                                        phone,
+                                        age, 
                                         gender,
-                                        purok,
-                                        medicalConditions,
-                                        allergies,
-                                        previousIllnesses,
-                                        surgeries,
-                                        medications)
-                VALUES ('$first_name',
-                        '$middle_name',
-                        '$last_name',
-                        '$age',
+                                        weight,
+                                        height,
+                                        nutritional_status,
+                                        dateofopertimbang,
+                                        phone,
+                                        remarks)
+                VALUES ('$p_name',
+                        '$name_parent',
+                        '$address',
                         '$birthdate',
-                        '$phone',
+                        '$age',
                         '$gender',
-                        '$purok',
-                        '$medicalConditions',
-                        '$allergies',
-                        '$previousIllnesses',
-                        '$surgeries',
-                        '$medications')";
+                        '$weight',
+                        '$height',
+                        '$nutritional_status',
+                        '$dateofopertimbang',
+                        '$phone',
+                        '$remarks')";
     $result = $conn->query($query);
-    $_SESSION['message'] = 'Failed to add resident!';
+    $_SESSION['message'] = 'Failed to add record!';
     $_SESSION['success'] = 'danger';
     if($result){
-        $_SESSION['message'] = 'Successfully added resident!';
+        $_SESSION['message'] = 'Successfully added record!';
         $_SESSION['success'] = 'success';
     }
-    header('location: resident.php');
+    header('location: oper-timbang.php');
 ?>

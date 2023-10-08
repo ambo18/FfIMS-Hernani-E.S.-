@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Vitamin - Electronic Management Tool For HBW</title>
+	<title>Deworming - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -21,12 +21,12 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="vitamin.php" class="text-primary">RECORD</a> > <strong class="text-default">CREATE</strong></h1>
+                                            <a href="deworming.php" class="text-primary">RECORDS</a> > <strong class="text-default">Add</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
-                                    <form method="POST" action="vitamin-add-record.php">
+                                    <form method="POST" action="deworming-add-record.php">
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<h2>
@@ -36,7 +36,7 @@
 										</div>
                                         <div class="row">																			
                                             <div class="col-md-6">
-												<div class="form-group">
+                                                <div class="form-group">
                                                     <label for="p_name">Patient Name</label>
                                                     <input type="text" class="form-control mb-1" id="p_name" name="p_name" required>
                                                 </div>
@@ -49,7 +49,7 @@
                                                     <input type="text" class="form-control mb-1" id="address" name="address" required>
                                                 </div>
 												<div class="form-group">
-                                                    <label>Birthdate:</label>
+                                                    <label>Birthdate</label>
                                                     <input type="date" class="form-control" name="birthdate" id="date" required>
                                                 </div>
                                                 <div class="form-group">
@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6">									
-												<div class="form-group">
+                                                <div class="form-group">
                                                     <label for="gender">Gender</label>
                                                     <select class="form-control" id="gender" name="gender" required>
 														<option selected="true" disabled="disabled">--</option>
@@ -67,9 +67,13 @@
                                                     </select>
                                                 </div>	
 												<div class="form-group">
-                                                    <label for="vitamin">Vitamin</label>
-                                                    <input type="text" class="form-control" id="vitamin" name="vitamin" required>
+                                                    <label>Date</label>
+                                                    <input type="date" class="form-control" name="dateofdeworming" id="dateofdeworming" required>
                                                 </div>	
+												<div class="form-group">
+                                                    <label for="typeofdeworming">Type</label>
+                                                    <input type="text" class="form-control" id="typeofdeworming" name="typeofdeworming" required>
+                                                </div>
 												<div class="form-group">
                                                     <label for="phone">Contact No.</label>
                                                     <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" required>
@@ -83,7 +87,7 @@
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<div class="form-group">
-                                                    <button type="submit" class="btn btn-primary mt-2 mb-2">Create</button>
+                                                    <button type="submit" class="btn btn-primary mt-2 mb-2">Add</button>
                                                 </div>
 											</div>
 										</div>

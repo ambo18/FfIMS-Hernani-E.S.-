@@ -1,7 +1,7 @@
 <?php include 'server/server.php' ?>
 <?php 
     $id = $_GET["id"];
-	$query = "SELECT * FROM tbl_operation_timbang WHERE id='$id'";
+	$query = "SELECT * FROM tbl_deworming WHERE id='$id'";
     $result = $conn->query($query);
 
     $resident = array();
@@ -32,13 +32,13 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="oper-timbang.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
+                                            <a href="deworming.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
                                     <?php foreach($resident as $row): ?>
-                                        <form method="POST" action="oper-timbang-update-record.php">
+                                        <form method="POST" action="deworming-update-record.php">
                                             <div class="card-head-row">
                                                 <div style="text-align: center;">
                                                     <h2>
@@ -56,7 +56,7 @@
                                                         <label for="name_parent">Parent Name</label>
                                                         <input type="text" class="form-control mb-1" id="name_parent" name="name_parent" value="<?= ucwords($row['name_parent']) ?>" required>
                                                     </div>
-                                                    <div class="form-group">
+													<div class="form-group">
                                                         <label for="address">Address</label>
                                                         <input type="text" class="form-control mb-1" id="address" name="address" value="<?= ucwords($row['address']) ?>" required>
                                                     </div>
@@ -67,57 +67,43 @@
                                                     <div class="form-group">
                                                         <label for="age">Age</label>
                                                         <input type="number" class="form-control" id="age" name="age" value="<?= ucwords($row['age']) ?>" required>
-                                                    </div> 
-													<div class="form-group">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label for="gender">Gender</label>
                                                         <select class="form-control" id="gender" name="gender" value="<?= ucwords($row['gender']) ?>" required>
                                                             <option selected="true" disabled="disabled">--</option>
                                                             <option value="MALE" <?="MALE" == $row['gender'] ? ' selected="selected"' : '';?>>MALE</option>
                                                             <option value="FEMALE" <?="FEMALE" == $row['gender'] ? ' selected="selected"' : '';?>>FEMALE</option>
                                                         </select>
-                                                    </div>                                                  
-                                                </div>
-                                                <div class="col-md-6">                                                	
+                                                    </div>
 													<div class="form-group">
-														<label for="weight">Weight (kg)</label>
-														<input type="number" class="form-control" id="weight" name="weight" value="<?= ucwords($row['weight']) ?>" required>
-													</div>	
+                                                        <label for="dateofdeworming">Date</label>
+                                                        <input type="date" class="form-control" id="phone" name="dateofdeworming" value="<?= ucwords($row['dateofdeworming']) ?>" required>
+                                                    </div>
 													<div class="form-group">
-														<label for="height">Height (cm)</label>
-														<input type="number" class="form-control" id="height" name="height" value="<?= ucwords($row['height']) ?>" required>
-													</div>
-													<div class="form-group">
-														<label for="nutritional_status">Nutritional Status</label>
-														<select class="form-control" id="nutritional_status" name="nutritional_status" value="<?= ucwords($row['nutritional_status']) ?>" required>
-															<option selected="true" disabled="disabled">--</option>
-															<option value="NORMAL" <?="NORMAL" == $row['nutritional_status'] ? ' selected="selected"' : '';?>>NORMAL</option>
-															<option value="UNDERNUTRITION" <?="UNDERNUTRITION" == $row['nutritional_status'] ? ' selected="selected"' : '';?>>UNDERNUTRITION</option>
-															<option value="OVERNUTRITION" <?="OVERNUTRITION" == $row['nutritional_status'] ? ' selected="selected"' : '';?>>OVERNUTRITION</option>
-														</select>
-													</div>
-													<div class="form-group">
-                                                        <label>Date</label>
-                                                        <input type="date" class="form-control" name="dateofopertimbang" id="dateofopertimbang" value="<?= ucwords($row['dateofopertimbang']) ?>" required>
+                                                        <label for="typeofdeworming">Type</label>
+                                                        <input type="text" class="form-control mb-1" id="typeofdeworming" name="typeofdeworming" value="<?= ucwords($row['typeofdeworming']) ?>" required>
                                                     </div>
 													<div class="form-group">
                                                         <label for="phone">Contact No.</label>
                                                         <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" value="<?= ucwords($row['phone']) ?>" required>
                                                     </div>
 													<div class="form-group">
-                                                    	<label for="remarks">Remarks</label>
-                                                    	<input type="text" class="form-control" id="remarks" name="remarks" value="<?= ucwords($row['remarks']) ?>" required>
-                                                	</div>	
+                                                        <label for="remarks">Remarks</label>
+                                                        <input type="text" class="form-control mb-1" id="remarks" name="remarks" value="<?= ucwords($row['remarks']) ?>" required>
+                                                    </div>
                                                     <input type="hidden" name="id" value="<?= ucwords($row['id']) ?>">
                                                 </div>
-                                            </div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<div class="form-group">
-                                                    <button type="submit" class="btn btn-primary mt-2 mb-2">Update</button>
-                                                </div>
+                                            </div>										
+											<div class="card-head-row">
+												<div style="text-align: center;">
+													<div class="form-group">
+                                                    	<button type="submit" class="btn btn-primary mt-2 mb-2">Update</button>
+                                                	</div>
+												</div>
 											</div>
-										</div>
                                         </form>
                                     <?php endforeach ?>
 								</div>

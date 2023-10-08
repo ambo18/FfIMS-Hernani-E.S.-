@@ -1,6 +1,6 @@
 <?php include 'server/server.php' ?>
 <?php 
-	$query = "SELECT * FROM tbl_distribution_of_vitamin ORDER BY id DESC";
+	$query = "SELECT * FROM tbl_deworming ORDER BY id DESC";
     $result = $conn->query($query);
 
     $resident = array();
@@ -8,11 +8,12 @@
 		$resident[] = $row; 
 	}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Vitamin - Electronic Management Tool For HBW</title>
+	<title>Deworming - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -42,7 +43,7 @@
 
                                         <div class="card-tools">
 											<?php if(isset($_SESSION['username']) && $_SESSION['role']!='resident'): ?>
-												<a href="vitamin-add.php" class="btn btn-primary mr-1">
+												<a href="deworming-add.php" class="btn btn-primary mr-1">
 													<i class="fa fa-plus mr-2"></i>
 													Add Records
 												</a>
@@ -62,36 +63,37 @@
 												<tr class="text-primary">
 													<th scope="col">Patient Name</th>
 													<th scope="col">Parent Name</th>
-													<th scope="col">Address</th>
-													<th scope="col">Birthdate</th>
-                                                    <th scope="col">Age</th>
-													<th scope="col">Vitamin</th>
+													<th scope="col">Age</th>
+													<th scope="col">Gender</th>
+                                                    <th scope="col">Date</th>
+													<th scope="col">Type</th>
 													<th scope="col">Action</th>
 												</tr>
 											</thead>
 											<tbody>
-												<?php if(!empty($resident)): ?>
-													<?php $no=1; foreach($resident as $row): ?>
-                                                        <tr>
-                                                            <td>
-                                                                <div class="avatar avatar-sm">
-                                                                    <span class="avatar-title rounded-circle border border-white" style="background-color: lightseagreen"><?= ucwords(strtoupper($row['p_name'][0])) ?></span>
-                                                                </div>
-                                                                <?= ucwords(strtoupper($row['p_name'])) ?>
-                                                            </td>
-                                                            <td><?= $row['name_parent'] ?></td>
-                                                            <td><?= $row['address'] ?></td>
-                                                            <td><?= $row['birthdate'] ?></td>
-                                                            <td><?= $row['age'] ?></td>
-                                                            <td><?= $row['vitamin'] ?></td>
-                                                            <td>
-																<a href="vitamin-update.php?id=<?= $row['id'] ?>" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Update">
-																	<i class="fa fa-edit mr-2"></i>
-																</a>
-															</td>
-                                                        </tr>
-													<?php $no++; endforeach ?>
-												<?php endif ?>
+											<?php if(!empty($resident)): ?>
+												<?php $no=1; foreach($resident as $row): ?>
+													<tr>
+														<td>
+															<div class="avatar avatar-sm">
+																<span class="avatar-title rounded-circle border border-white" style="background-color: lightseagreen"><?= ucwords(strtoupper($row['p_name'][0])) ?></span>
+															</div>
+															<?= ucwords(strtoupper($row['p_name'])) ?>
+														</td>
+														<td><?= $row['name_parent'] ?></td>
+														<td><?= $row['age'] ?></td>
+														<td><?= $row['gender'] ?></td>
+														<td><?= $row['dateofdeworming'] ?></td>
+														<td><?= $row['typeofdeworming'] ?></td>
+														<td>
+															<a href="deworming-update.php?id=<?= $row['id'] ?>" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Update">
+																<i class="fa fa-edit mr-2"></i>
+															</a>
+														</td>
+													</tr>
+												<?php $no++; endforeach ?>
+											<?php endif ?>
+
 											</tbody>
 										</table>
 									</div>
@@ -118,10 +120,10 @@
 
         function Export(){
 			// should have policy like 2 weeks retention of records and scope for export to csv
-			var conf = confirm("Export Distribution of Vitamin to CSV?");
-			var stmt = "SELECT p_name,name_parent,address,birthdate,age,gender,vitamin,phone,remarks FROM tbl_operation_timbang";
-			var tblHeader = 'Patient Name,Parent Name,Address,Birth Date,Age,Gender,Vitamin,Contact Number,Remarks';
-			var fileName = "Distribution Of Vitamin Records";
+			var conf = confirm("Export Deworming Records to CSV?");
+			var stmt = "SELECT p_name,name_parent,address,birthdate,age,gender,dateofdeworming,typeofdeworming,phone,remarks FROM tbl_deworming";
+			var tblHeader = 'Patient Name,Parent Name,Address,Birth Date,Age,Gender,Date Of Deworming,Type Of Deworming,Contact Number,Remarks';
+			var fileName = "Deworming Records";
 			if(conf){
 				window.open(`export.php?query=${stmt}&tblHeader=${tblHeader}&fileName=${fileName}`, '_blank');
 			}

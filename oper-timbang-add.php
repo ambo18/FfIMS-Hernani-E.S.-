@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Resident - Masili Health Service System</title>
+	<title>Operation Timbang - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -21,12 +21,12 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="resident.php" class="text-primary">RECORD</a> > <strong class="text-default">CREATE</strong></h1>
+                                            <a href="oper-timbang.php" class="text-primary">RECORD</a> > <strong class="text-default">CREATE</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
-                                    <form method="POST" action="resident_add_record.php">
+                                    <form method="POST" action="oper-timbang-add-record.php">
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<h2>
@@ -37,32 +37,26 @@
                                         <div class="row">																			
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="first_name">First Name</label>
-                                                    <input type="text" class="form-control mb-1" id="first_name" name="first_name" required>
+                                                    <label for="p_name">Patient Name</label>
+                                                    <input type="text" class="form-control mb-1" id="p_name" name="p_name" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="middle_name">Middle Name</label>
-                                                    <input type="text" class="form-control mb-1" id="middle_name" name="middle_name" required>
+                                                    <label for="name_parent">Parent Name</label>
+                                                    <input type="text" class="form-control mb-1" id="name_parent" name="name_parent" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="last_name">Last Name</label>
-                                                    <input type="text" class="form-control mb-1" id="last_name" name="last_name" required>
+                                                    <label for="address">Address</label>
+                                                    <input type="text" class="form-control mb-1" id="address" name="address" required>
+                                                </div>
+												<div class="form-group">
+                                                    <label>Birthdate</label>
+                                                    <input type="date" class="form-control" name="birthdate" id="date" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="age">Age</label>
                                                     <input type="number" class="form-control" id="age" name="age" required>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label>Birthdate:</label>
-                                                    <input type="date" class="form-control" name="birthdate" id="date" required>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">									
-                                            	<div class="form-group">
-                                                    <label for="phone">Contact No.</label>
-                                                    <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" required>
-                                                </div>
-                                                <div class="form-group">
+												<div class="form-group">
                                                     <label for="gender">Gender</label>
                                                     <select class="form-control" id="gender" name="gender" required>
 														<option selected="true" disabled="disabled">--</option>
@@ -70,87 +64,39 @@
 														<option>FEMALE</option>
                                                     </select>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label for="purok">Address</label>
-													<input type="text" class="form-control mb-1" id="purok" name="purok" required>
+                                            </div>
+                                            <div class="col-md-6">		
+												<div class="form-group">
+                                                    <label for="weight">Weight (kg)</label>
+                                                    <input type="number" class="form-control" id="weight" name="weight" required>
+                                                </div>	
+												<div class="form-group">
+                                                    <label for="height">Height (cm)</label>
+                                                    <input type="number" class="form-control" id="height" name="height" required>
                                                 </div>
+												<div class="form-group">
+                                                    <label for="nutritional_status">Nutritional Status</label>
+                                                    <select class="form-control" id="nutritional_status" name="nutritional_status" required>
+														<option selected="true" disabled="disabled">--</option>
+														<option>NORMAL</option>
+														<option>UNDERNUTRITION</option>
+														<option>OVERNUTRITION</option>
+                                                    </select>
+                                                </div>
+												<div class="form-group">
+                                                    <label>Date</label>
+                                                    <input type="date" class="form-control" name="dateofopertimbang" id="dateofopertimbang" required>
+                                                </div>
+												<div class="form-group">
+                                                    <label for="phone">Contact No.</label>
+                                                    <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" required>
+                                                </div>	
+												<div class="form-group">
+                                                    <label for="remarks">Remarks</label>
+                                                    <input type="text" class="form-control" id="remarks" name="remarks" required>
+                                                </div>					
                                             </div>
                                         </div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Medical Conditions
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="medicalConditions">Existing Medical Conditions:</label><br>
-        											<textarea id="medicalConditions" name="medicalConditions" rows="4" cols="50"></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Allergies
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="allergies">Allergies:</label><br>
-        											<textarea id="allergies" name="allergies" rows="4" cols="50"></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Previous Illnesses
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="previousIllnesses">Previous Illnesses:</label><br>
-        											<textarea id="previousIllnesses" name="previousIllnesses" rows="4" cols="50"></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Surgeries
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="surgeries">Surgeries:</label><br>
-        											<textarea id="surgeries" name="surgeries" rows="4" cols="50"></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Medications
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="medications">Medications:</label><br>
-        											<textarea id="medications" name="medications" rows="4" cols="50"></textarea>
-                                                </div>
-											</div>
-										</div>
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<div class="form-group">

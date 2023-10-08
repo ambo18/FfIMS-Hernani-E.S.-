@@ -6,29 +6,33 @@
     $birthdate = strtoupper($_POST['birthdate']);
     $age = strtoupper($_POST['age']);
     $gender = strtoupper($_POST['gender']);
-    $vitamin = strtoupper($_POST['vitamin']);
+    $dateofdeworming = strtoupper($_POST['dateofdeworming']);
+    $typeofdeworming = strtoupper($_POST['typeofdeworming']);
     $phone = strtoupper($_POST['phone']);
     $remarks = strtoupper($_POST['remarks']);
 
 
-    $query = "INSERT INTO tbl_distribution_of_vitamin (p_name, 
-                                        name_parent, 
-                                        address, 
-                                        birthdate, 
-                                        age, 
-                                        gender,
-                                        vitamin,
-                                        phone,
-                                        remarks)
+    $query = "INSERT INTO tbl_deworming (p_name, 
+                                    name_parent, 
+                                    address, 
+                                    birthdate, 
+                                    age, 
+                                    gender,
+                                    dateofdeworming,
+                                    typeofdeworming,
+                                    remarks,
+                                    phone)
                 VALUES ('$p_name',
                         '$name_parent',
                         '$address',
                         '$birthdate',
                         '$age',
                         '$gender',
-                        '$vitamin',
-                        '$phone',
-                        '$remarks')";
+                        '$dateofdeworming',
+                        '$typeofdeworming',
+                        '$remarks',
+                        '$phone')";
+
     $result = $conn->query($query);
     $_SESSION['message'] = 'Failed to add patient record!';
     $_SESSION['success'] = 'danger';
@@ -36,5 +40,6 @@
         $_SESSION['message'] = 'Successfully added patient record!';
         $_SESSION['success'] = 'success';
     }
-    header('location: vitamin.php');
+    
+    header('location: deworming.php');
 ?>

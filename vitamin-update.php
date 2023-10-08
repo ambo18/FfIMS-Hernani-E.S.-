@@ -1,22 +1,12 @@
 <?php include 'server/server.php' ?>
 <?php 
     $id = $_GET["id"];
-	$query = "SELECT * FROM tblresident WHERE id='$id'";
+	$query = "SELECT * FROM tbl_distribution_of_vitamin WHERE id='$id'";
     $result = $conn->query($query);
 
     $resident = array();
 	while($row = $result->fetch_assoc()){
 		$resident[] = $row; 
-	}
-
-
-    // purok
-    $query = "SELECT * FROM tblpurok";
-    $result = $conn->query($query);
-
-    $purok = array();
-	while($row = $result->fetch_assoc()){
-		$purok[] = $row; 
 	}
 ?>
 
@@ -24,7 +14,7 @@
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Residents - Masili Health Service System</title>
+	<title>Vitamin - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -42,13 +32,13 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="resident.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
+                                            <a href="vitamin.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
                                     <?php foreach($resident as $row): ?>
-                                        <form method="POST" action="resident_update_record.php">
+                                        <form method="POST" action="vitamin-update-record.php">
                                             <div class="card-head-row">
                                                 <div style="text-align: center;">
                                                     <h2>
@@ -59,31 +49,27 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="first_name">First Name</label>
-                                                        <input type="text" class="form-control mb-1" id="first_name" name="first_name" value="<?= ucwords($row['firstname']) ?>" required>
+                                                        <label for="p_name">Patient Name</label>
+                                                        <input type="text" class="form-control mb-1" id="p_name" name="p_name" value="<?= ucwords($row['p_name']) ?>" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="middle_name">Middle Name</label>
-                                                        <input type="text" class="form-control mb-1" id="middle_name" name="middle_name" value="<?= ucwords($row['middlename']) ?>" required>
+                                                        <label for="name_parent">Parent Name</label>
+                                                        <input type="text" class="form-control mb-1" id="name_parent" name="name_parent" value="<?= ucwords($row['name_parent']) ?>" required>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label for="last_name">Last Name</label>
-                                                        <input type="text" class="form-control mb-1" id="last_name" name="last_name" value="<?= ucwords($row['lastname']) ?>" required>
+                                                        <label for="address">Address</label>
+                                                        <input type="text" class="form-control mb-1" id="address" name="address" value="<?= ucwords($row['address']) ?>" required>
+                                                    </div>
+													<div class="form-group">
+                                                        <label>Birthdate</label>
+                                                        <input type="date" class="form-control" name="birthdate" id="date" value="<?= ucwords($row['birthdate']) ?>" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="age">Age</label>
                                                         <input type="number" class="form-control" id="age" name="age" value="<?= ucwords($row['age']) ?>" required>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label>Birthdate</label>
-                                                        <input type="date" class="form-control" name="birthdate" id="date" value="<?= ucwords($row['birthdate']) ?>" required>
-                                                    </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                <div class="form-group">
-                                                        <label for="phone">Contact No.</label>
-                                                        <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" value="<?= ucwords($row['phone']) ?>" required>
-                                                    </div>
+                                                <div class="col-md-6">                                                	
                                                     <div class="form-group">
                                                         <label for="gender">Gender</label>
                                                         <select class="form-control" id="gender" name="gender" value="<?= ucwords($row['gender']) ?>" required>
@@ -92,95 +78,28 @@
                                                             <option value="FEMALE" <?="FEMALE" == $row['gender'] ? ' selected="selected"' : '';?>>FEMALE</option>
                                                         </select>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="purok">Address</label>
-                                                        <input type="text" class="form-control mb-1" id="purok" name="purok" value="<?= ucwords($row['purok']) ?>" required>
+													<div class="form-group">
+														<label for="vitamin">Vitamin</label>
+														<input type="text" class="form-control" id="vitamin" name="vitamin" value="<?= ucwords($row['vitamin']) ?>" required>
+													</div>	
+													<div class="form-group">
+                                                        <label for="phone">Contact No.</label>
+                                                        <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" value="<?= ucwords($row['phone']) ?>" required>
                                                     </div>
+													<div class="form-group">
+                                                    	<label for="remarks">Remarks</label>
+                                                    	<input type="text" class="form-control" id="remarks" name="remarks" value="<?= ucwords($row['remarks']) ?>" required>
+                                                	</div>	
                                                     <input type="hidden" name="id" value="<?= ucwords($row['id']) ?>">
                                                 </div>
                                             </div>
-                                            <div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Medical Conditions
-												</h2>
+											<div class="card-head-row">
+												<div style="text-align: center;">
+													<div class="form-group">
+														<button type="submit" class="btn btn-primary mt-2 mb-2">Update</button>
+													</div>
+												</div>
 											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="medicalConditions">Existing Medical Conditions:</label><br>
-        											<textarea id="medicalConditions" name="medicalConditions" rows="4" cols="50"><?= ucwords($row['medicalConditions']) ?></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Allergies
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="allergies">Allergies:</label><br>
-        											<textarea id="allergies" name="allergies" rows="4" cols="50"><?= ucwords($row['allergies']) ?></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Previous Illnesses
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="previousIllnesses">Previous Illnesses:</label><br>
-        											<textarea id="previousIllnesses" name="previousIllnesses" rows="4" cols="50"><?= ucwords($row['previousIllnesses']) ?></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Surgeries
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="surgeries">Surgeries:</label><br>
-        											<textarea id="surgeries" name="surgeries" rows="4" cols="50"><?= ucwords($row['surgeries']) ?></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<h2>
-													Medications
-												</h2>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-6">
-												<div class="form-group">
-													<label for="medications">Medications:</label><br>
-        											<textarea id="medications" name="medications" rows="4" cols="50"><?= ucwords($row['medications']) ?></textarea>
-                                                </div>
-											</div>
-										</div>
-										<div class="card-head-row">
-											<div style="text-align: center;">
-												<div class="form-group">
-                                                    <button type="submit" class="btn btn-primary mt-2 mb-2">Update</button>
-                                                </div>
-											</div>
-										</div>
                                         </form>
                                     <?php endforeach ?>
 								</div>
