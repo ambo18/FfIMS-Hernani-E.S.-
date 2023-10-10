@@ -8,6 +8,7 @@
     $age = strtoupper($_POST['age']);
     $gender = strtoupper($_POST['gender']);
     $vitamin = strtoupper($_POST['vitamin']);
+    $dateofdisofvitamin = strtoupper($_POST['dateofdisofvitamin']);
     $phone = strtoupper($_POST['phone']);
     $remarks = strtoupper($_POST['remarks']);
 
@@ -19,11 +20,12 @@
                     age        ='$age',
                     gender     ='$gender',
                     vitamin     ='$vitamin',
+                    dateofdisofvitamin='$dateofdisofvitamin',
                     phone  ='$phone',
                     remarks='$remarks'
              WHERE id='$id'";
                
-            $result = $conn->query($query);
+    $result = $conn->query($query);
     $_SESSION['message'] = 'Failed to update patient record!';
     $_SESSION['success'] = 'danger';
     if($result){

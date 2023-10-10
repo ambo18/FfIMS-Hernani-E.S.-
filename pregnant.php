@@ -1,6 +1,6 @@
 <?php include 'server/server.php' ?>
 <?php 
-	$query = "SELECT * FROM tblresident ORDER BY id DESC";
+	$query = "SELECT * FROM tbl_pregnant ORDER BY id DESC";
     $result = $conn->query($query);
 
     $resident = array();
@@ -8,19 +8,12 @@
 		$resident[] = $row; 
 	}
 
-    $query1 = "SELECT * FROM tblpurok ORDER BY `name`";
-    $result1 = $conn->query($query1);
-
-    $purok = array();
-	while($row = $result1->fetch_assoc()){
-		$purok[] = $row; 
-	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Resident - Masili Health Service System</title>
+	<title>Pregnant - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -50,7 +43,7 @@
 
                                         <div class="card-tools">
 											<?php if(isset($_SESSION['username']) && $_SESSION['role']!='resident'): ?>
-												<a href="resident_add_form.php" class="btn btn-primary mr-1">
+												<a href="pregnant-add.php" class="btn btn-primary mr-1">
 													<i class="fa fa-plus mr-2"></i>
 													Add Records
 												</a>
@@ -68,12 +61,12 @@
 										<table id="tblResident" class="display table">
 											<thead>
 												<tr class="text-primary">
-													<th scope="col">Record Name</th>
-													<th scope="col">Birthdate</th>
+													<th scope="col">Name</th>
 													<th scope="col">Age</th>
-													<th scope="col">Contact No.</th>
-                                                    <th scope="col">Gender</th>
-													<th scope="col">Barangay</th>
+													<th scope="col" style="text-align: center;">Date of Last Menstrual Period</th>
+                                                    <th scope="col" style="text-align: center;">Estemated Due Date</th>
+													<th scope="col">Blood Type</th>
+													<th scope="col" style="text-align: center;">RH Factor</th>
 													<th scope="col">Action</th>
 												</tr>
 											</thead>
@@ -83,17 +76,17 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="avatar avatar-sm">
-                                                                    <span class="avatar-title rounded-circle border border-white" style="background-color: lightseagreen"><?= ucwords(strtoupper($row['lastname'][0].$row['firstname'][0])) ?></span>
+                                                                    <span class="avatar-title rounded-circle border border-white" style="background-color: lightseagreen"><?= ucwords(strtoupper($row['p_name'][0])) ?></span>
                                                                 </div>
-                                                                <?= ucwords(strtoupper($row['lastname'].', '.$row['firstname'].' '.$row['middlename'])) ?>
+                                                                <?= ucwords(strtoupper($row['p_name'])) ?>
                                                             </td>
-                                                            <td><?= $row['birthdate'] ?></td>
                                                             <td><?= $row['age'] ?></td>
-                                                            <td><?= $row['phone'] ?></td>
-                                                            <td><?= $row['gender'] ?></td>
-                                                            <td><?= $row['purok'] ?></td>
+                                                            <td><?= $row['lmp'] ?></td>
+                                                            <td><?= $row['edd'] ?></td>
+                                                            <td><?= $row['bloodtype'] ?></td>
+															<td><?= $row['rhfactor'] ?></td>
                                                             <td>
-																<a href="resident_update_form.php?id=<?= $row['id'] ?>" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Update">
+																<a href="pregnant-update.php?id=<?= $row['id'] ?>" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Update">
 																	<i class="fa fa-edit mr-2"></i>
 																</a>
 															</td>
@@ -126,10 +119,10 @@
 
         function Export(){
 			// should have policy like 2 weeks retention of records and scope for export to csv
-			var conf = confirm("Export resident to CSV?");
-			var stmt = "SELECT lastname,firstname,middlename,birthdate,age,phone, gender, purok,voterstatus FROM tblresident";
-			var tblHeader = 'Last name,First name,Middle name,Birthdate,Age, Civil Status,Gender,Purok,Voter Status';
-			var fileName = "resident";
+			var conf = confirm("Export Pregnant Records to CSV?");
+			var stmt = "SELECT p_name,birthdate,age,address,lmp,edd,allergies,bloodtype,rhfactor,sbp,dbp FROM tbl_pregnant";
+			var tblHeader = 'Name,Birth Date,Age,Address,Date of Last Menstrual Period,Estimated Due Date,Allergies,Blood Type,RH Factor,Systolic Blood Pressure,Diastolic Blood Pressure';
+			var fileName = "Pregnants Records";
 			if(conf){
 				window.open(`export.php?query=${stmt}&tblHeader=${tblHeader}&fileName=${fileName}`, '_blank');
 			}

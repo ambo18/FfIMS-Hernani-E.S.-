@@ -49,7 +49,7 @@
                                                     <input type="text" class="form-control mb-1" id="address" name="address" required>
                                                 </div>
 												<div class="form-group">
-                                                    <label>Birthdate:</label>
+                                                    <label>Birthdate</label>
                                                     <input type="date" class="form-control" name="birthdate" id="date" required>
                                                 </div>
                                                 <div class="form-group">
@@ -70,6 +70,10 @@
                                                     <label for="vitamin">Vitamin</label>
                                                     <input type="text" class="form-control" id="vitamin" name="vitamin" required>
                                                 </div>	
+												<div class="form-group">
+                                                    <label>Date</label>
+                                                    <input type="date" class="form-control" name="dateofdisofvitamin" id="dateofdisofvitamin" required>
+                                                </div>
 												<div class="form-group">
                                                     <label for="phone">Contact No.</label>
                                                     <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" required>

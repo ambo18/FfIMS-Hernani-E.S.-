@@ -83,6 +83,10 @@
 														<input type="text" class="form-control" id="vitamin" name="vitamin" value="<?= ucwords($row['vitamin']) ?>" required>
 													</div>	
 													<div class="form-group">
+                                                        <label>Date</label>
+                                                        <input type="date" class="form-control" name="dateofdisofvitamin" id="dateofdisofvitamin" value="<?= ucwords($row['dateofdisofvitamin']) ?>" required>
+                                                    </div>
+													<div class="form-group">
                                                         <label for="phone">Contact No.</label>
                                                         <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" value="<?= ucwords($row['phone']) ?>" required>
                                                     </div>

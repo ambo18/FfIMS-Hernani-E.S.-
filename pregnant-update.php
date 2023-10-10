@@ -1,7 +1,7 @@
 <?php include 'server/server.php' ?>
 <?php 
     $id = $_GET["id"];
-	$query = "SELECT * FROM tbl_bp WHERE id='$id'";
+	$query = "SELECT * FROM tbl_pregnant WHERE id='$id'";
     $result = $conn->query($query);
 
     $resident = array();
@@ -32,13 +32,13 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="bp.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
+                                            <a href="pregnant.php" class="text-primary">RECORD</a> > <strong class="text-default">UPDATE</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
                                     <?php foreach($resident as $row): ?>
-                                        <form method="POST" action="bp-update-record.php">
+                                        <form method="POST" action="pregnant-update-record.php">
                                             <div class="card-head-row">
                                                 <div style="text-align: center;">
                                                     <h2>
@@ -49,7 +49,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="p_name">Patient Name</label>
+                                                        <label for="p_name">Name</label>
                                                         <input type="text" class="form-control mb-1" id="p_name" name="p_name" value="<?= ucwords($row['p_name']) ?>" required>
                                                     </div>
                                                     <div class="form-group">
@@ -60,20 +60,36 @@
                                                         <label for="age">Age</label>
                                                         <input type="number" class="form-control" id="age" name="age" value="<?= ucwords($row['age']) ?>" required>
                                                     </div> 
-													<div class="form-group">
-                                                        <label for="gender">Gender</label>
-                                                        <select class="form-control" id="gender" name="gender" value="<?= ucwords($row['gender']) ?>" required>
-                                                            <option selected="true" disabled="disabled">--</option>
-                                                            <option value="MALE" <?="MALE" == $row['gender'] ? ' selected="selected"' : '';?>>MALE</option>
-                                                            <option value="FEMALE" <?="FEMALE" == $row['gender'] ? ' selected="selected"' : '';?>>FEMALE</option>
-                                                        </select>
-                                                    </div>
                                                     <div class="form-group">
                                                         <label for="address">Address</label>
                                                         <input type="text" class="form-control mb-1" id="address" name="address" value="<?= ucwords($row['address']) ?>" required>
+                                                    </div>
+													<div class="form-group">
+                                                        <label>Date of Last Menstrual Period</label>
+                                                        <input type="date" class="form-control" name="lmp" id="lmp" value="<?= ucwords($row['lmp']) ?>" required>
+                                                    </div>
+													<div class="form-group">
+                                                        <label>Estimated Due Date</label>
+                                                        <input type="date" class="form-control" name="edd" id="edd" value="<?= ucwords($row['edd']) ?>" required>
                                                     </div>													                                                   													                                                  
                                                 </div>
-                                                <div class="col-md-6">                                                	
+                                                <div class="col-md-6">
+													<div class="form-group">
+                                                        <label for="allergies">Allergies</label>
+                                                        <input type="text" class="form-control mb-1" id="allergies" name="allergies" value="<?= ucwords($row['allergies']) ?>" required>
+                                                    </div>
+													<div class="form-group">
+                                                        <label for="bloodtype">Blood Type</label>
+                                                        <input type="text" class="form-control mb-1" id="bloodtype" name="bloodtype" value="<?= ucwords($row['bloodtype']) ?>" required>
+                                                    </div> 
+													<div class="form-group">
+                                                        <label for="rhfactor">RH Factor</label>
+                                                        <select class="form-control" id="rhfactor" name="rhfactor" value="<?= ucwords($row['rhfactor']) ?>" required>
+                                                            <option selected="true" disabled="disabled">--</option>
+                                                            <option value="POSITIVE" <?="POSITIVE" == $row['rhfactor'] ? ' selected="selected"' : '';?>>POSITIVE</option>
+                                                            <option value="NEGATIVE" <?="NEGATIVE" == $row['rhfactor'] ? ' selected="selected"' : '';?>>NEGATIVE</option>
+                                                        </select>
+                                                    </div>                                               	
 													<div class="form-group">
 														<label for="sbp">Systolic Blood Pressure</label>
 														<input type="number" class="form-control" id="sbp" name="sbp" value="<?= ucwords($row['sbp']) ?>" required>
@@ -81,19 +97,7 @@
 													<div class="form-group">
 														<label for="dbp">Diastolic Blood Pressure</label>
 														<input type="number" class="form-control" id="dbp" name="dbp" value="<?= ucwords($row['dbp']) ?>" required>
-													</div>
-													<div class="form-group">
-                                                        <label>Date</label>
-                                                        <input type="date" class="form-control" name="dateofbp" id="dateofbp" value="<?= ucwords($row['dateofbp']) ?>" required>
-                                                    </div>
-													<div class="form-group">
-                                                        <label for="phone">Contact No.</label>
-                                                        <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" value="<?= ucwords($row['phone']) ?>" required>
-                                                    </div>
-													<div class="form-group">
-                                                    	<label for="remarks">Remarks</label>
-                                                    	<input type="text" class="form-control" id="remarks" name="remarks" value="<?= ucwords($row['remarks']) ?>" required>
-                                                	</div>	
+													</div>	
                                                     <input type="hidden" name="id" value="<?= ucwords($row['id']) ?>">
                                                 </div>
                                             </div>

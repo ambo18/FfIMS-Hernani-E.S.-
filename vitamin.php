@@ -62,10 +62,10 @@
 												<tr class="text-primary">
 													<th scope="col">Patient Name</th>
 													<th scope="col">Parent Name</th>
-													<th scope="col">Address</th>
 													<th scope="col">Birthdate</th>
-                                                    <th scope="col">Age</th>
-													<th scope="col">Vitamin</th>
+													<th scope="col">Age</th>
+                                                    <th scope="col">Vitamin</th>
+													<th scope="col">Date</th>
 													<th scope="col">Action</th>
 												</tr>
 											</thead>
@@ -80,10 +80,10 @@
                                                                 <?= ucwords(strtoupper($row['p_name'])) ?>
                                                             </td>
                                                             <td><?= $row['name_parent'] ?></td>
-                                                            <td><?= $row['address'] ?></td>
                                                             <td><?= $row['birthdate'] ?></td>
                                                             <td><?= $row['age'] ?></td>
                                                             <td><?= $row['vitamin'] ?></td>
+															<td><?= $row['dateofdisofvitamin'] ?></td>
                                                             <td>
 																<a href="vitamin-update.php?id=<?= $row['id'] ?>" class="btn btn-link" data-toggle="tooltip" data-placement="top" title="Update">
 																	<i class="fa fa-edit mr-2"></i>

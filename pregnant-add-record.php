@@ -1,38 +1,40 @@
 <?php include 'server/server.php' ?>
 <?php
-    $id = $_POST['id'];
     $p_name = strtoupper($_POST['p_name']);
     $birthdate = strtoupper($_POST['birthdate']);
     $age = strtoupper($_POST['age']);
-    $gender = strtoupper($_POST['gender']);
     $address = strtoupper($_POST['address']);
+    $lmp = strtoupper($_POST['lmp']);
+    $edd = strtoupper($_POST['edd']);
+    $allergies = strtoupper($_POST['allergies']);
+    $bloodtype = strtoupper($_POST['bloodtype']);
+    $rhfactor = strtoupper($_POST['rhfactor']);
     $sbp = strtoupper($_POST['sbp']);
     $dbp = strtoupper($_POST['dbp']);
-    $dateofbp = strtoupper($_POST['dateofbp']);
-    $phone = strtoupper($_POST['phone']);
-    $remarks = strtoupper($_POST['remarks']);
 
 
-    $query = "INSERT INTO tbl_bp (p_name, 
+    $query = "INSERT INTO tbl_pregnant (p_name, 
                                         birthdate, 
                                         age, 
-                                        gender, 
-                                        address, 
+                                        address,
+                                        lmp,
+                                        edd,
+                                        allergies,
+                                        bloodtype,
+                                        rhfactor, 
                                         sbp,
-                                        dbp,
-                                        dateofbp,
-                                        phone,
-                                        remarks)
+                                        dbp)
                 VALUES ('$p_name',
                         '$birthdate',
                         '$age',
-                        '$gender',
                         '$address',
+                        '$lmp',
+                        '$edd',
+                        '$allergies',
+                        '$bloodtype',
+                        '$rhfactor',
                         '$sbp',
-                        '$dbp',
-                        '$dateofbp',
-                        '$phone',
-                        '$remarks')";
+                        '$dbp')";
     $result = $conn->query($query);
     $_SESSION['message'] = 'Failed to add record!';
     $_SESSION['success'] = 'danger';
@@ -40,5 +42,5 @@
         $_SESSION['message'] = 'Successfully added record!';
         $_SESSION['success'] = 'success';
     }
-    header('location: bp.php');
+    header('location: pregnant.php');
 ?>

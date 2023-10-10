@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Blood Pressure - Electronic Management Tool For HBW</title>
+	<title>Pregnant - Electronic Management Tool For HBW</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -21,12 +21,12 @@
 									<div class="card-head-row">
 										<div class="card-title">
 											<h1>
-                                            <a href="bp.php" class="text-primary">RECORD</a> > <strong class="text-default">ADD</strong></h1>
+                                            <a href="pregnant.php" class="text-primary">RECORD</a> > <strong class="text-default">ADD</strong></h1>
 										</div>
 									</div>
 								</div>
 								<div class="card-body">
-                                    <form method="POST" action="bp-add-record.php">
+                                    <form method="POST" action="pregnant-add-record.php">
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<h2>
@@ -37,7 +37,7 @@
                                         <div class="row">																			
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="p_name">Patient Name</label>
+                                                    <label for="p_name">Name</label>
                                                     <input type="text" class="form-control mb-1" id="p_name" name="p_name" required>
                                                 </div>
                                                 <div class="form-group">
@@ -49,19 +49,35 @@
                                                     <input type="number" class="form-control" id="age" name="age" required>
                                                 </div>
 												<div class="form-group">
-                                                    <label for="gender">Gender</label>
-                                                    <select class="form-control" id="gender" name="gender" required>
-														<option selected="true" disabled="disabled">--</option>
-														<option>MALE</option>
-														<option>FEMALE</option>
-                                                    </select>
-                                                </div>
-												<div class="form-group">
                                                     <label for="address">Address</label>
                                                     <input type="text" class="form-control mb-1" id="address" name="address" required>
                                                 </div>
+												<div class="form-group">
+                                                    <label>Date of Last Menstrual Period</label>
+                                                    <input type="date" class="form-control" name="lmp" id="lmp" required>
+                                                </div>
+												<div class="form-group">
+                                                    <label>Estimated Due Date</label>
+                                                    <input type="date" class="form-control" name="edd" id="edd" required>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">		
+                                            <div class="col-md-6">	
+												<div class="form-group">
+                                                    <label for="allergies">Allergies</label>
+                                                    <input type="text" class="form-control mb-1" id="allergies" name="allergies" required>
+                                                </div>
+												<div class="form-group">
+                                                    <label for="bloodtype">Blood Type</label>
+                                                    <input type="text" class="form-control mb-1" id="bloodtype" name="bloodtype" required>
+                                                </div>
+												<div class="form-group">
+                                                    <label for="rhfactor">RH Factor</label>
+                                                    <select class="form-control" id="rhfactor" name="rhfactor" required>
+														<option selected="true" disabled="disabled">--</option>
+														<option>POSITIVE</option>
+														<option>NEGATIVE</option>
+                                                    </select>
+                                                </div>	
 												<div class="form-group">
                                                     <label for="sbp">Systolic Blood Pressure</label>
                                                     <input type="number" class="form-control" id="sbp" name="sbp" required>
@@ -69,18 +85,6 @@
 												<div class="form-group">
                                                     <label for="dbp">Diastolic Blood Pressure</label>
                                                     <input type="number" class="form-control" id="dbp" name="dbp" required>
-                                                </div>
-												<div class="form-group">
-                                                    <label>Date</label>
-                                                    <input type="date" class="form-control" name="dateofbp" id="dateofbp" required>
-                                                </div>
-												<div class="form-group">
-                                                    <label for="phone">Contact No.</label>
-                                                    <input type="text" maxlength="11" onkeyup="numbersOnly(this)" class="form-control" id="phone" name="phone" required>
-                                                </div>	
-												<div class="form-group">
-                                                    <label for="remarks">Remarks</label>
-                                                    <input type="text" class="form-control" id="remarks" name="remarks" required>
                                                 </div>					
                                             </div>
                                         </div>
