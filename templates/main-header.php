@@ -1,5 +1,3 @@
-<?php include 'model/fetch_brgy_info.php' ?>
-
 <div class="main-header">
     <!-- Logo Header -->
     <div class="logo-header">

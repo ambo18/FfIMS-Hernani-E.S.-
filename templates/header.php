@@ -1,6 +1,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-<link rel="icon" href="assets/img/masili.png" type="image/x-icon"/>
+<link rel="icon" href="assets/img/logo.png" type="image/x-icon"/>
 
 <!-- Fonts and icons -->
 <script src="assets/js/plugin/webfont/webfont.min.js"></script>
