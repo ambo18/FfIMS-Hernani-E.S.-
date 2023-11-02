@@ -1,5 +1,5 @@
 <?php
-$database	= 'bis';
+$database	= 'FfMIS';
 $username	= 'root';
 $host		= 'localhost';
 $password	= '';

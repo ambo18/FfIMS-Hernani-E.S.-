@@ -20,32 +20,6 @@ $current_page = PageName();
                 <!-- end of dashboard -->
 
 
-                <!-- medical consumables -->
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">MEDICAL CONSUMABLES</h4>
-                </li>
-                        <!-- medicine -->
-                        <li class="nav-item <?= $current_page=='medicine.php' || $current_page=='medicine_add_form.php'  || $current_page=='medicine_update_form.php' ? 'active' : null ?>">
-                            <a href="medicine.php" >
-                                <i class="fas"><img style="width: 30px; height: 30px;" src="icon/medicine.png"></i>
-                                <p>Medicine</p>
-                            </a>
-                        </li>
-                        <!-- medical supplies -->
-                        <li class="nav-item <?= $current_page=='supplies.php' || $current_page=='supplies_update_form.php' || $current_page=='supplies_add_form.php' ? 'active' : null ?>">
-                            <a href="supplies.php" >
-                                <i class="fas"><img style="width: 30px; height: 30px;" src="icon/medical.png"></i>
-                                <p>Medical Supplies</p>
-                            </a>
-                        </li>
-                <!-- end of medical consumables -->
-
-
-                
-                
                 <!-- reocords -->
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
@@ -65,39 +39,7 @@ $current_page = PageName();
                                 <p>Operation Timbang</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= $current_page=='vitamin.php' || $current_page=='vitamin-add.php' || $current_page=='vitamin-update.php' ? 'active' : null ?>">
-                            <a href="vitamin.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/vitamins.png"></i>
-                                <p>Distribution Of Vitamin</p>
-                            </a>
-                        </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">FOR ADULT</h4>
-                </li>
-                        <li class="nav-item <?= $current_page=='bp.php' || $current_page=='bp-add.php' || $current_page=='bp-update.php' ? 'active' : null ?>">
-                            <a href="bp.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/bp.png"></i>
-                                <p>Blood Pressure</p>
-                            </a>
-                        </li>
-
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">FOR PREGNANTS</h4>
-                </li>
-                        <li class="nav-item <?= $current_page=='pregnant.php' || $current_page=='pregnant-add.php' || $current_page=='pregnant-update.php' ? 'active' : null ?>">
-                            <a href="pregnant.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/pregnant.png"></i>
-                                <p>Pregnants</p>
-                            </a>
-                        </li>
-           
+                        
                 <!-- system maintenance -->
                 <?php if(isset($_SESSION['username']) && $_SESSION['role']=='system-maintenance'): ?>
                 <li class="nav-section">
