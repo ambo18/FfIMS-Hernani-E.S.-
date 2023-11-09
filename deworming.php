@@ -1,6 +1,6 @@
 <?php include 'server/server.php' ?>
 <?php 
-	$query = "SELECT * FROM tbl_deworming ORDER BY id DESC";
+	$query = "SELECT * FROM tbl_fisher_info ORDER BY id DESC";
     $result = $conn->query($query);
 
     $resident = array();
@@ -13,7 +13,7 @@
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Deworming - Electronic Management Tool For HBW</title>
+	<title>Records - Fisher Folks Information Management System</title>
 </head>
 <body>
 	<div class="wrapper">

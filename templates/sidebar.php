@@ -5,7 +5,7 @@ function PageName() {
 
 $current_page = PageName();
 ?>
-<div class="sidebar sidebar-style-2">			
+<div class="sidebar sidebar-style-2 bg-dark-gradient">			
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             
@@ -27,16 +27,16 @@ $current_page = PageName();
                     </span>
                     <h4 class="text-section">FOR CHILDREN</h4>
                 </li>
-                        <li class="nav-item <?= $current_page=='deworming.php' || $current_page=='deworming-add.php' || $current_page=='deworming-update.php' ? 'active' : null ?>">
-                            <a href="deworming.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/worm.png"></i>          
-                                <p>Deworming</p>
+                        <li class="nav-item <?= $current_page=='deworming-add.php' ? 'active' : null ?>">
+                            <a href="deworming-add.php" >
+                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/add.png"></i>          
+                                <p>Add Record</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= $current_page=='oper-timbang.php' || $current_page=='oper-timbang-add.php' || $current_page=='oper-timbang-update.php' ? 'active' : null ?>">
-                            <a href="oper-timbang.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/weight.png"></i>
-                                <p>Operation Timbang</p>
+                        <li class="nav-item <?= $current_page=='deworming.php' ? 'active' : null ?>">
+                            <a href="deworming.php" >
+                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/list.png"></i>
+                                <p>Records</p>
                             </a>
                         </li>
                         
@@ -52,7 +52,7 @@ $current_page = PageName();
                         <li class="nav-item <?= $current_page=='manage-user.php' || $current_page=='manage_user_add_form.php' ? 'active': null ?>">
                             <a href="manage-user.php" >
                                 <i class="fa"><img style="width: 30px; height: 30px;" src="icon/management.png"></i>
-                                <p>Manage Users</p>
+                                <p>Users</p>
                             </a>
                         </li>
                         <?php endif ?>
@@ -62,8 +62,8 @@ $current_page = PageName();
                 <!-- sign out -->
                 <li class="nav-item" style="margin-top: 50px;">
                     <a href="model/logout.php">
-                        <i class="icon-logout"></i>
-                        <p>Logged as <span class='text-primary'><?php echo $_SESSION['username']; ?></span></p>
+                    <i class="fas"><img style="width: 30px; height: 30px;" src="icon/log-out.png"></i>
+                        <p>Logged Out</p>
                     </a>
                 </li>
                 <!-- end of sign out -->
@@ -74,6 +74,6 @@ $current_page = PageName();
 </div>
 <style>
     .sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a {
-        background-color: lightseagreen !important;
+        background-color: #336699 !important;
     }
 </style>

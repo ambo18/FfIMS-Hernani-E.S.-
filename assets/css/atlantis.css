@@ -654,7 +654,7 @@ body {
   .sidebar.sidebar-style-2 .nav .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
     background: transparent !important; }
 .sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a {
-  background: #1c9790 !important;
+  background: #336699 !important;
   box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), 4px 4px 15px -5px rgba(21, 114, 232, 0.4) !important; }
   .sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a:before {
     background: transparent !important; }
@@ -2316,25 +2316,25 @@ label {
   border-top: transparent !important; }
 
 .card-default {
-  background: #1a2035 !important; }
+  background: #336699  !important; }
 
 .card-primary {
-  background: #1c9790 !important; }
+  background: #993366 !important; }
 
 .card-secondary {
-  background: #1269db !important; }
+  background: #99CC33 !important; }
 
 .card-info {
-  background: #48ABF7 !important; }
+  background: #CC9933 !important; }
 
 .card-success {
-  background: #31CE36 !important; }
+  background: #666699 !important; }
 
 .card-warning {
-  background: #FFAD46 !important; }
+  background: #669966 !important; }
 
 .card-danger {
-  background: #F25961 !important; }
+  background: #CC6699 !important; }
 
 .card-round {
   border-radius: 5px; }
@@ -4342,20 +4342,20 @@ label.error {
     border-color: #31CE36 !important; }
 
 .btn-warning {
-  background: #FFAD46 !important;
-  border-color: #FFAD46 !important;
+  background: #669966 !important;
+  border-color: #669966 !important;
   color: #ffffff !important; }
   .btn-warning:hover, .btn-warning:focus, .btn-warning:disabled {
-    background: #FFAD46 !important;
-    border-color: #FFAD46 !important;
+    background: #4f7e4f  !important;
+    border-color: #4f7e4f  !important;
     color: #ffffff !important; }
 
 .btn-danger {
-  background: #F25961 !important;
-  border-color: #F25961 !important; }
+  background: #CC6699 !important;
+  border-color: #CC6699 !important; }
   .btn-danger:hover, .btn-danger:focus, .btn-danger:disabled {
-    background: #F25961 !important;
-    border-color: #F25961 !important; }
+    background: #9e4372 !important;
+    border-color: #9e4372 !important; }
 
 .btn-light {
   background: #ffffff !important;

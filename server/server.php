@@ -7,7 +7,6 @@ $password	= '';
 ini_set('display_errors',1);
 error_reporting(E_ALL);
 mysqli_report(MYSQLI_REPORT_ERROR | E_DEPRECATED | E_STRICT);
-// error_reporting(0);
 
 $conn = new mysqli($host,$username,$password,$database);
 

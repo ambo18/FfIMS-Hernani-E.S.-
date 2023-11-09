@@ -6,7 +6,7 @@
 <footer class="footer">
     <di  style="text-align: center;">
         <div>
-            2023 &copy Electronic Management Tool For Barangay Health Workers
+            2023 &copy Fisher Folks Information Management System
         </div>				
     </div>
 </footer>

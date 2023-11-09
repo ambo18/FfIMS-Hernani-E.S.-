@@ -8,10 +8,10 @@
 <html lang="en">
 <head>
     <?php include 'templates/header.php' ?>
-	<title>Login - Electronic Management Tool For Barangay Health Workers</title>
+	<title>Fisher Folks Information Management System</title>
 	<style>
 		.wrapper-login {
-			background-image: url("./assets/img/login-bg.jpg");
+			background-image: url("./assets/img/bglogin.jpg");
 			background-color: #cccccc;
 			height: 500px;
 			background-position: center;
@@ -25,9 +25,9 @@
 		}
 
 		.card-size {
-			height: 680px;
+			height: 500px;
 			width: 520px;
-			margin-left: 65px;
+			margin-left: 330px;
 		}
 		
 		.login .wrapper.wrapper-login{
@@ -52,14 +52,35 @@
 		.text-seagreen {
 			color: lightseagreen !important;
 		}
+
+		.btn-dark:hover {
+			background-color: #707070;
+		}
 	</style>
 </head>
 <?php include 'templates/loading_screen.php' ?>
 <body class="login">
+	<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+		<a class="navbar-brand" href="#">Fisher Folks IMS</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item active">
+					<a class="nav-link" href="login.php">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="about.php">About</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="wrapper wrapper-login">
+				<div class="wrapper wrapper-login">				
+					
 					<section class="vh-100">
 						<div class="container py-5 h-100">
 							<div class="row d-flex justify-content-center align-items-center h-100">
@@ -71,10 +92,7 @@
 													<form method="POST" action="model/login.php">
 														<!-- login as member -->
 														<div class="mb-3 pb-1 text-center">
-															<h1>
-																<i class="fas fa-briefcase-medical fa-2x me-3 mr-2 text-seagreen" ></i>
-															</h1>
-															<span class="h1 fw-bold mb-0 ">Electronic Management Tool For Barangay Health Workers</span>
+															<span class="h1 fw-bold mb-0 ">Fisher Folks Information Management System</span>
 														</div>
 														<?php if(isset($_SESSION['message'])): ?>
 															<span class="text-<?= $_SESSION['success']; ?>" >

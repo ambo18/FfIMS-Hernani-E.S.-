@@ -9,38 +9,13 @@
 	$stmtOperTimTotal 	= "SELECT COUNT(*) AS count FROM tbl_operation_timbang";
     $OperTimTotal 	= $conn->query($stmtOperTimTotal);
 	$totalOperTim = $OperTimTotal->fetch_assoc();
-
-	// total medicine available
-	$stmtMedinceAvailableTotal 	= "SELECT SUM(quantity) AS med_count FROM tbl_medicine";
-    $resMedicineAvailableTotal 	= $conn->query($stmtMedinceAvailableTotal);
-	$totalMedicineAvailable = $resMedicineAvailableTotal->fetch_assoc();
-
-	// total medical supply available
-	$stmtMedicalSupplyAvailable 	= "SELECT SUM(quantity) AS supply_count FROM tbl_medical_supply";
-    $resMedicalSupplyAvailable 	= $conn->query($stmtMedicalSupplyAvailable);
-	$totalMedicalSupplyAvailable = $resMedicalSupplyAvailable->fetch_assoc();
-
-	// total distribution of vitamins records
-	$stmtDisVitTotal 	= "SELECT COUNT(*) AS count FROM tbl_distribution_of_vitamin";
-    $DisVitTotal 	= $conn->query($stmtDisVitTotal);
-	$totalDisVit = $DisVitTotal->fetch_assoc();
-
-	// total of blood presure records
-	$stmtBloodPressureTotal 	= "SELECT COUNT(*) AS count FROM tbl_bp";
-    $BloodPressureTotal 	= $conn->query($stmtBloodPressureTotal);
-	$totalBloodPressure = $BloodPressureTotal->fetch_assoc();
-
-	// total of pregnant records
-	$stmtPregnantTotal 	= "SELECT COUNT(*) AS count FROM tbl_pregnant";
-    $PregnantTotal 	= $conn->query($stmtPregnantTotal);
-	$totalPregnant = $PregnantTotal->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<?php include 'templates/header.php' ?>
-	<title>Dashboard - Electronic Management Tool For Barangay Health Workers</title>
+	<title>Dashboard - Fisher Folks Information Management System</title>
 </head>
 <body>
 	<div class="wrapper">
@@ -64,32 +39,8 @@
 					<!-- analytics -->
 						<div class="row">
 							<div class="d-flex p-3 flex-row ">
-								<div class="card text-center mr-3" style="width: 15rem;">
-									<div class="card-header card-info">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalMedicineAvailable['med_count']?$totalMedicineAvailable['med_count']:0 ?></span>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title">
-											<strong>MEDICINE</strong>
-										</h5>
-										<p class="card-text">Total no. of medicines available in the barangay.</p>
-										<a href="medicine.php" class="btn btn-info btn-sm">View Details</a>
-									</div>
-								</div>
-								<div class="card text-center mr-3" style="width: 15rem;">
-									<div class="card-header card-warning">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalMedicalSupplyAvailable['supply_count']>0?$totalMedicalSupplyAvailable['supply_count']:0 ?></span>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title text-default">
-											<strong>MEDICAL SUPPLY</strong>
-										</h5>
-										<p class="card-text">Total no. of consumables available in the barangay.</p>
-										<a href="supplies.php" class="btn btn-warning btn-sm">View Details</a>
-									</div>
-								</div>
 								<div class="card text-center mr-3 " style="width: 15rem;">
-									<div class="card-header card-success">
+									<div class="card-header card-danger">
 										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalDeworming['count']?$totalDeworming['count']:0 ?></span>
 									</div>
 									<div class="card-body">
@@ -97,11 +48,11 @@
 											<strong>DEWORMING RECORDS</strong>
 										</h5>
 										<p class="card-text">Total no. of deworming records in the barangay.</p>
-										<a href="deworming.php" class="btn btn-success btn-sm">View Details</a>
+										<a href="deworming.php" class="btn btn-danger btn-sm">View Details</a>
 									</div>
 								</div>
 								<div class="card text-center mr-3 " style="width: 15rem;">
-									<div class="card-header card-danger">
+									<div class="card-header card-warning">
 										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalOperTim['count']?$totalOperTim['count']:0 ?></span>
 									</div>
 									<div class="card-body">
@@ -109,52 +60,12 @@
 											<strong>OPERATION TIMBANG RECORDS</strong>
 										</h5>
 										<p class="card-text">Total no. of operation timbang records in the barangay.</p>
-										<a href="oper-timbang.php" class="btn btn-danger btn-sm">View Details</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="d-flex p-3 flex-row ">
-								<div class="card text-center mr-3" style="width: 15rem;">
-									<div class="card-header card-default">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalDisVit['count']>0?$totalDisVit['count']:0 ?></span>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title text-default">
-											<strong>DISTRIBUTION OF VITAMINS RECORDS</strong>
-										</h5>
-										<p class="card-text">Total no. of distribution of vitamins in the barangay.</p>
-										<a href="vitamin.php" class="btn btn-default btn-sm">View Details</a>
-									</div>
-								</div>
-								<div class="card text-center mr-3 " style="width: 15rem;">
-									<div class="card-header card-primary">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalBloodPressure['count']?$totalBloodPressure['count']:0 ?></span>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title">
-											<strong>BLOOD PRESSURE RECORDS</strong>
-										</h5>
-										<p class="card-text">Total no. of blood pressure records in the barangay.</p>
-										<a href="bp.php" class="btn btn-primary btn-sm">View Details</a>
-									</div>
-								</div>
-								<div class="card text-center mr-3 " style="width: 15rem;">
-									<div class="card-header card-secondary">
-										<span style="font-size: 65px; font-weight: bold;"><?php echo $totalPregnant['count']?$totalPregnant['count']:0 ?></span>
-									</div>
-									<div class="card-body">
-										<h5 class="card-title">
-											<strong>PREGNANT RECORDS</strong>
-										</h5>
-										<p class="card-text">Total no. of pregnant records in the barangay.</p>
-										<a href="pregnant.php" class="btn btn-secondary btn-sm">View Details</a>
+										<a href="oper-timbang.php" class="btn btn-warning btn-sm">View Details</a>
 									</div>
 								</div>
 							</div>
 						</div>					
 					<!-- end of analytics -->
-
 
 				</div>
 			</div>
@@ -165,5 +76,6 @@
 		
 	</div>
 	<?php include 'templates/footer.php' ?>
+	
 </body>
 </html>

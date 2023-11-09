@@ -3,7 +3,7 @@
     <div class="logo-header">
         
         <a href="dashboard.php" class="logo">
-            <span class="text-light ml-2 fw-bold" style="font-size:20px">EMT FOR HBW</span>
+            <span class="text-light ml-2 fw-bold" style="font-size:20px; padding-left: 35px;">WELCOME</span>
         </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
@@ -14,16 +14,17 @@
     <!-- End Logo Header -->
 
     <!-- Navbar Header -->
-    <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2"></nav>
+    <nav class="navbar-header text-light ml-2 fw-bold" data-background-color="blue2"><h3 style = "text-align: center;"><b>FISHER FOLKS INFORMATION MANAGEMENT SYSTEM</b></h3></nav>
     <!-- End Navbar -->
 </div>
 <style>
     .navbar-header[data-background-color="blue2"]{
-        background: lightseagreen !important;
+        background: #336699 !important;
+        padding-top: 15px;
     }
 
     .logo-header {
-        background: #1c9790 !important;
+        background: #204f7c !important;
     }
 
     img {
