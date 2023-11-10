@@ -18,7 +18,7 @@
 				$_SESSION['display_name'] = $row['display_name'];
 			}
 
-			$_SESSION['message'] = 'You have successfully logged as <b class="text-primary">'.$_SESSION['role'].'</b> user!';
+			$_SESSION['message'] = 'You have successfully logged in!';
 			$_SESSION['success'] = 'success';
 
             header('location: ../dashboard.php');

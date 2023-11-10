@@ -27,14 +27,14 @@ $current_page = PageName();
                     </span>
                     <h4 class="text-section">FOR CHILDREN</h4>
                 </li>
-                        <li class="nav-item <?= $current_page=='deworming-add.php' ? 'active' : null ?>">
-                            <a href="deworming-add.php" >
+                        <li class="nav-item <?= $current_page=='fishers-add.php' ? 'active' : null ?>">
+                            <a href="fishers-add.php" >
                             <i class="fas"><img style="width: 30px; height: 30px;" src="icon/add.png"></i>          
                                 <p>Add Record</p>
                             </a>
                         </li>
-                        <li class="nav-item <?= $current_page=='deworming.php' ? 'active' : null ?>">
-                            <a href="deworming.php" >
+                        <li class="nav-item <?= $current_page=='fishers.php' ? 'active' : null ?>">
+                            <a href="fishers.php" >
                             <i class="fas"><img style="width: 30px; height: 30px;" src="icon/list.png"></i>
                                 <p>Records</p>
                             </a>

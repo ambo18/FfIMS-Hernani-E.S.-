@@ -36,19 +36,12 @@
 							<?php include 'templates/loading_screen.php' ?>
                             <div class="card">
 								<div class="card-header">
-									<div class="card-head-row">
-										<div class="card-title text-primary">
-											<h1>MANAGE USER</h1>
-										</div>
+									<div class="card-head-row">									
 										<div class="card-tools">
 											<a href="manage_user_add_form.php" class="btn btn-primary mr-1">
 												<i class="fa fa-plus mr-2"></i>
 												User
-											</a>
-											<button onclick="Export()" class="btn btn-default btn-default">
-												<i class="fa fa-download mr-2"></i>
-												Export to CSV
-											</button>
+											</a>									
 										</div>
 									</div>
 								</div>
@@ -67,9 +60,6 @@
 												<?php foreach($users as $row): ?>
 													<tr>
 														<td>
-															<div class="avatar avatar-sm">
-																<span class="avatar-title rounded-circle border border-white" style="background-color: lightseagreen"><?= ucwords($row['display_name'][0]) ?></span>
-															</div>
 															<?= $row['display_name'] ?>
 														</td>
 														<td><?= $row['username'] ?></td>
@@ -106,30 +96,5 @@
 		</div>
 	</div>
 	<?php include 'templates/footer.php' ?>
-	<script>
-		function Export(){
-			var conf = confirm("Export users to CSV?");
-			var stmt = "SELECT username, user_type, status FROM tbl_users";
-			var tblHeader = 'Username,User Type,Status';
-			var fileName = "users";
-			if(conf){
-				window.open(`export.php?query=${stmt}&tblHeader=${tblHeader}&fileName=${fileName}`, '_blank');
-			}
-		}
-	</script>
-	<style>
-		.text-primary, .text-primary a{
-			color: #1c9790 !important;
-		}
-
-		.btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:disabled{
-			background: #1c9790 !important;
-			border-color: #1c9790 !important;
-		}
-
-        .text-primary:hover, .text-primary a:hover{
-			color: #1c9790 !important;
-		}
-	</style>
 </body>
 </html>

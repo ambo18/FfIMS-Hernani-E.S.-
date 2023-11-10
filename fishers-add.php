@@ -18,7 +18,7 @@
 							<?php include 'templates/loading_screen.php' ?>
 							<div class="card">
 								<div class="card-body">
-                                    <form method="POST" action="deworming-add-record.php" enctype="multipart/form-data">
+                                    <form method="POST" action="fishers-add-record.php" enctype="multipart/form-data">
 										<div class="card-head-row">
 											<div style="text-align: center;">
 												<h2>
@@ -30,13 +30,14 @@
 											<img id="imageHolder" class="img-fluid mt-3">
 										</div>
 										<div class="form-group">
-											<input type="file" class="form-control-file" id="f-image" name="f-image" onchange="previewImage(event)" required>
+											<label for="f_image">Image</label>
+											<input type="file" class="form-control-file" id="f_image" name="f_image" onchange="previewImage(event)" required>
 										</div>
                                         <div class="row">																			
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="f-name">Name</label>
-                                                    <input type="text" class="form-control mb-1" id="f-name" name="f-name" placeholder="Enter name" required>
+                                                    <label for="f_name">Name</label>
+                                                    <input type="text" class="form-control mb-1" id="f_name" name="f_name" placeholder="Enter name" required>
                                                 </div>
 												<div class="form-group">
                                                     <label>Birthdate</label>
@@ -101,12 +102,12 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="monthly-income">Monthly Income</label>
-													<input type="number" class="form-control" id="monthly-income" name="monthly-income" placeholder="Enter monthly income">
+													<label for="monthly_income">Monthly Income</label>
+													<input type="number" class="form-control" id="monthly_income" name="monthly_income" placeholder="Enter monthly income">
 												</div>
 												<div class="form-group">
-													<label for="educational-level">Educational Level</label>
-													<select class="form-control" id="educational-level" name="educational-level">
+													<label for="education_level">Educational Level</label>
+													<select class="form-control" id="education_level" name="education_level">
 														<option selected="true" disabled="disabled">--</option>
 														<option>ELEMENTARY</option>
 														<option>HIGH SCHOOL</option>
@@ -131,14 +132,14 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="fishing-skill">Fishing Skill (Trap fishing, Net casting, etc)</label>
-													<input type="text" class="form-control" id="fishing-skill" name="fishing-skill" placeholder="Enter fishing skill">
+													<label for="fishing_skill">Fishing Skill (Trap fishing, Net casting, etc)</label>
+													<input type="text" class="form-control" id="fishing_skill" name="fishing_skill" placeholder="Enter fishing skill">
 												</div>
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="other-relevant-skill">Other Relevant Skill (Technical skills)</label>
-													<input type="text" class="form-control" id="other-relevant-skill" name="other-relevant-skill" placeholder="Enter other relevant skill">
+													<label for="other_relevant_skill">Other Relevant Skill (Technical skills)</label>
+													<input type="text" class="form-control" id="other_relevant_skill" name="other_relevant_skill" placeholder="Enter other relevant skill">
 												</div>
 											</div>
 										</div>
@@ -152,8 +153,8 @@
 										<div class="row">
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="fishing-boat-specifications">Fishing Boat Specifications</label>
-													<select class="form-control" id="fishing-boat-specifications" name="fishing-boat-specifications">
+													<label for="f_boat_specification">Fishing Boat Specifications</label>
+													<select class="form-control" id="f_boat_specification" name="f_boat_specification">
 														<option selected="true" disabled="disabled">--</option>
 														<option>Non-motorized Boat</option>
 														<option>Motorized Boat</option>
@@ -162,8 +163,8 @@
 											</div>
 											<div class="col-md-6">
 												<div class="form-group">
-													<label for="type-of-fishing-gear">Type of Fishing Gear (Traps, Nets, Hooks, etc)</label>
-													<input type="text" class="form-control" id="type-of-fishing-gear" name="type-of-fishing-gear" placeholder="Enter type of fishing gear">
+													<label for="type_of_f_gear">Type of Fishing Gear (Traps, Nets, Hooks, etc)</label>
+													<input type="text" class="form-control" id="type_of_f_gear" name="type_of_f_gear" placeholder="Enter type of fishing gear">
 												</div>
 											</div>
 										</div>
@@ -214,7 +215,7 @@
 			height: auto;
 		}
 	</style>
-
+	
 	<script>
 		function previewImage(event) {
 			var imageHolder = document.getElementById('imageHolder');
@@ -222,5 +223,37 @@
 			imageHolder.style.display = 'block';
 		}
 	</script>
+
+	<script>
+		function validateForm() {
+			var fileInput = document.getElementById('f_image');
+			var file = fileInput.files[0];
+			var allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
+			var maxSize = 2 * 1024 * 1024; // 2MB in bytes
+
+			if (!file) {
+				alert('Please select an image file.');
+				return false;
+			}
+
+			if (!allowedTypes.includes(file.type)) {
+				alert('Invalid file type. Only JPEG, PNG, and GIF files are allowed.');
+				return false;
+			}
+
+			if (file.size > maxSize) {
+				alert('The image size is too large. Please upload an image smaller than 2MB.');
+				return false;
+			}
+
+			// If the image passes all the checks, you can submit the form
+			return true;
+		}
+
+		document.getElementById('form').onsubmit = function() {
+			return validateForm();
+		};
+	</script>
+
 </body>
 </html>
