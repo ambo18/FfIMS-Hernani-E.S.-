@@ -19,48 +19,35 @@ $current_page = PageName();
                 </li>
                 <!-- end of dashboard -->
 
-
                 <!-- reocords -->
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">FOR CHILDREN</h4>
+                <li class="nav-item <?= $current_page=='fishers-add.php' ? 'active' : null ?>">
+                    <a href="fishers-add.php" >
+                    <i class="fas"><img style="width: 30px; height: 30px;" src="icon/add.png"></i>          
+                        <p>Add Record</p>
+                    </a>
                 </li>
-                        <li class="nav-item <?= $current_page=='fishers-add.php' ? 'active' : null ?>">
-                            <a href="fishers-add.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/add.png"></i>          
-                                <p>Add Record</p>
-                            </a>
-                        </li>
-                        <li class="nav-item <?= $current_page=='fishers.php' ? 'active' : null ?>">
-                            <a href="fishers.php" >
-                            <i class="fas"><img style="width: 30px; height: 30px;" src="icon/list.png"></i>
-                                <p>Records</p>
-                            </a>
-                        </li>
+                <li class="nav-item <?= $current_page=='fishers.php' ? 'active' : null ?>">
+                    <a href="fishers.php" >
+                    <i class="fas"><img style="width: 30px; height: 30px;" src="icon/list.png"></i>
+                        <p>Records</p>
+                    </a>
+                </li>                        
                         
                 <!-- system maintenance -->
                 <?php if(isset($_SESSION['username']) && $_SESSION['role']=='system-maintenance'): ?>
-                <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section">SYSTEM MAINTENANCE</h4>
+                <!-- manage users -->
+                <li class="nav-item <?= $current_page=='manage-user.php' || $current_page=='manage_user_add_form.php' ? 'active': null ?>">
+                    <a href="manage-user.php" >
+                        <i class="fa"><img style="width: 30px; height: 30px;" src="icon/management.png"></i>
+                        <p>Users</p>
+                    </a>
                 </li>
-                        <!-- manage users -->
-                        <li class="nav-item <?= $current_page=='manage-user.php' || $current_page=='manage_user_add_form.php' ? 'active': null ?>">
-                            <a href="manage-user.php" >
-                                <i class="fa"><img style="width: 30px; height: 30px;" src="icon/management.png"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
-                        <?php endif ?>
+                <?php endif ?>
                 <!-- end of system maintenance -->
 
 
                 <!-- sign out -->
-                <li class="nav-item" style="margin-top: 50px;">
+                <li class="nav-item" style="margin-top: 300px;">
                     <a href="model/logout.php">
                     <i class="fas"><img style="width: 30px; height: 30px;" src="icon/log-out.png"></i>
                         <p>Logged Out</p>
